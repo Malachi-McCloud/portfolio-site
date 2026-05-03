@@ -1,52 +1,48 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Portfolio</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Portfolio.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/dist/site.css" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Portfolio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Header -->
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>@ViewData["Title"] - Malachi McCloud</title>
+        <!-- Pulls the Tailwind CSS page built earlier. -->
+        <link rel="stylesheet" href="~/css/dist/site.css" />
+    </head>
+
+
+
+    <!-- Uses tailwind to set lightgray background then text to a darker color antialiased for smoother font render -->
+    <body class="bg-neutral-50 text-neutral-900 antialiased">
+        <header class="border-b border-neutral-200"> <!--Subtle border-->
+        <nav class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between"> <!-- Centers content limits to readable width -->
+            <a href="/" class="text-xl font-semibold tracking-tight">
+            Malachi McCloud
+            </a>
+
+            <!-- Site Nav -->
+            <div class="flex gap-6 text-sm">
+                <a href="/" class="hover:text-blue-600 transition">Home</a>
+                <a href="/Projects" class="hover:text-blue-600 transition">Projects</a>
+                <a href="/Log" class="hover:text-blue-600 transition">Log</a>
+                <a href="/Resume" class="hover:text-blue-600 transition">Resume</a>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
+        
+    <!-- Main  -->
+    <main class="max-w-3xl mx-auto px-4 py-10"> <!-- Semantic tag, center like header padding so it doesn't hug edges -->
+        @RenderBody()
         </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Portfolio - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200 mt-10">
+        <div class="max-w-3xl mx-auto px-4 py-6 text-sm text-neutral-500">
+            © @DateTime.Now.Year · Built by Malachi · Powered by ASP.NET Core + Tailwind
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    </body>
 
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+    
 </html>
