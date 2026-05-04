@@ -1,13 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"], // v4-compatible class mode
   content: [
     "./Pages/**/*.{cshtml,razor}",
     "./Views/**/*.{cshtml,razor}",
-    "./Components/**/*.{razor,cshtml}",
-    "./**/*.razor",
-    "./**/*.cshtml"
+    "./wwwroot/**/*.html"
   ],
-  darkMode: "class",
   theme: {
     extend: {},
   },
